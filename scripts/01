@@ -1,0 +1,4 @@
+cat /etc/passwd | while read line
+do
+	echo `echo "$line" | cut -d':' -f1 ; echo "$line" | cut -d':' -f3 ; echo "$line" | cut -d':' -f6`
+done

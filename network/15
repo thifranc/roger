@@ -1,0 +1,4 @@
+c'est /etc/hosts car il contient 
+les associations locales
+entre noms de domaines et addresses IP
+c'est donc nos entrées locales DNS

@@ -1,0 +1,5 @@
+il faut ajouter la ligne
+
+46.19.122.85  intra.42.fr
+ds le fichier /etc/hosts
+attention faut être sudo
