@@ -1,5 +1,7 @@
 on fait la commande :
 whois slash16.org
 
-on voit que le registrar est bookmyname.com
-donc l'hébergeur de nom de domaine est bookmyname
+on voit que :
+le registrar est bookmyname.com, donc l'hébergeur de nom de domaine est bookmyname
+
+sinon les serveurs sont au nom de AWS, donc l'hébergeur du site est AWS

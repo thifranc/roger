@@ -1,1 +1,1 @@
-pgrep sshd
+ps aux | grep -i sshd

@@ -1,1 +1,1 @@
-ls -S1 `find $1 -maxdepth 1 -type f`
+ls -Slh `find $1 -maxdepth 1 -type f`

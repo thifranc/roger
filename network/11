@@ -1,13 +1,11 @@
-la sortie de la commande print les bond successifs
-pour arriver à la destination donnée
+au vu du /etc/resolve.conf
 
-j'ai nslooup les ip successives, la première qui n'était pas de 42 est celle là :
+42 a des addresses privées de classe A
+cf : https://www.supinfo.com/articles/single/4843-adresses-ip-privees-publiques
 
-➜  ~ nslookup 195.154.1.106
-Server:		10.51.1.42
-Address:	10.51.1.42#53
+donc on traceroute slash16.org
 
-Non-authoritative answer:
-106.1.154.195.in-addr.arpa	name = a9k2-45x-s44-2.dc3.poneytelecom.eu.
+la première IP qui sort de la range des addresses privées de classe A est : 62.210.35.1
+donc le "saut" se fait entre cette addresse est la précédente, la précédente est donc le matériel qui fait le lien entre 42 et l'extérieur :
 
-donc le point de passage est l'ip de la machine précédente : soit 62.210.35.1
+c'est nat-1 (10.60.1.11)

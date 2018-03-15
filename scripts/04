@@ -1,4 +1,5 @@
-#!/bin/bash
+
+SCRIPT="#!/bin/bash
 
 PATHFILE=/etc/crontab
 LASTMODIF=`cat /home/vagrant/lastModif.txt`
@@ -6,8 +7,10 @@ CMDLASTMODIF=`stat $PATHFILE -c %Y`
 
 if [ $CMDLASTMODIF != $LASTMODIF ]
 then
-	echo "file /etc/crontab has been modified " | mail -s "hello" "thifranc42@gmail.com"
+	echo \"file /etc/crontab has been modified \" | mail -s \"hello\" \"thifranc42@gmail.com\"
 	echo $CMDLASTMODIF > /home/vagrant/lastModif.txt
-else
-	echo "non changé"
-fi
+fi"
+echo $SCRIPT > /home/vagrant/detectModif.sh
+
+
+sudo crontab -l | echo "* * * * * root /home/vagrant/detectModif.sh" | crontab
