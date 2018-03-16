@@ -1,1 +1,1 @@
-ifconfig ; networksetup -listallhardwareports
+networksetup -listallhardwareports
