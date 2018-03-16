@@ -1,1 +1,1 @@
-sudo crontab -l | echo "* * * * * root apt-get -y update & apt-get -y upgrade > /var/log/update_script.log" | crontab
+sudo crontab -l | echo "0 4 * * 1 apt-get -y update >> /var/log/update_script.log ; apt-get -y upgrade >> /var/log/update_script.log" | sudo crontab

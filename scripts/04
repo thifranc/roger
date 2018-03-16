@@ -1,16 +1,17 @@
-
-SCRIPT="#!/bin/bash
-
-PATHFILE=/etc/crontab
-LASTMODIF=`cat /home/vagrant/lastModif.txt`
-CMDLASTMODIF=`stat $PATHFILE -c %Y`
-
-if [ $CMDLASTMODIF != $LASTMODIF ]
-then
-	echo \"file /etc/crontab has been modified \" | mail -s \"hello\" \"thifranc42@gmail.com\"
-	echo $CMDLASTMODIF > /home/vagrant/lastModif.txt
+#!/bin/bash
+SCRIPT="#!/bin/bash\n
+PATHFILE=/etc/crontab\n
+if [ ! -f /home/vagrant/lastModif.txt ]\n
+then\n
+	echo \"init\" > /home/vagrant/lastModif.txt\n
+fi\n
+LASTMODIF=\`cat /home/vagrant/lastModif.txt\`\n
+CMDLASTMODIF=\`stat \$PATHFILE -c %Y\`\n
+if [ \$CMDLASTMODIF != \$LASTMODIF ]\n
+then\n
+	echo \"file /etc/crontab has been modified \" | mail -s \"hello\" root\n
+	echo \$CMDLASTMODIF > /home/vagrant/lastModif.txt\n
 fi"
-echo $SCRIPT > /home/vagrant/detectModif.sh
+echo -e $SCRIPT > /home/vagrant/detectModif.sh
 
-
-sudo crontab -l | echo "* * * * * root /home/vagrant/detectModif.sh" | crontab
+sudo crontab -l | echo "0 0 * * * bash /home/vagrant/detectModif.sh" | sudo crontab

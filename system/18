@@ -1,1 +1,1 @@
-sudo iptables -I INPUT \! --src 10.0.0.0 --dport 8 -j DROP
+sudo iptables -I INPUT \! --src 10.0.0.0/8 -j DROP
